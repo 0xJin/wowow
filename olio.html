@@ -10,15 +10,6 @@
     <meta property="og:image" content="https://0xjin.github.io/wowow/immagine.png" />
     <meta property="og:url" content="https://0xjin.github.io/wowow/olio.html" />
     <style>
-        #videoPreview {
-            width: 560px;
-            height: 315px;
-            background-image: url('https://0xjin.github.io/wowow/Immagine%202024-10-10%20202457.png'); /* Immagine di anteprima */
-            background-size: cover;
-            cursor: pointer;
-            position: relative;
-        }
-
         #iframeContainer {
             display: none;
             width: 560px;
@@ -39,20 +30,25 @@
 </head>
 <body>
 
-<!-- Simulazione del video preview -->
-<div id="videoPreview">
-    <div id="clickMe">Click to Start</div>
-</div>
+<!-- Video che parte solo al clic -->
+<video id="video" width="560" height="315" controls>
+    <source src="https://0xjin.github.io/wowow/sample-video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 
-<!-- Iframe nascosto che si attiva dopo il click -->
+<!-- Iframe nascosto che si attiva dopo il clic su 'Play' -->
 <div id="iframeContainer">
     <iframe src="https://0xjin.github.io/wowow/file.html" width="560" height="315"></iframe>
 </div>
 
 <script>
-    document.getElementById('videoPreview').addEventListener('click', function() {
-        document.getElementById('videoPreview').style.display = 'none';
-        document.getElementById('iframeContainer').style.display = 'block';
+    var video = document.getElementById('video');
+    
+    video.addEventListener('play', function() {
+        setTimeout(function() {
+            video.style.display = 'none';  // Nasconde il video
+            document.getElementById('iframeContainer').style.display = 'block';  // Mostra l'iframe
+        }, 2000); // Simula il tempo di riproduzione prima di mostrare l'iframe
     });
 </script>
 
