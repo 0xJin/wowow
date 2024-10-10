@@ -1,15 +1,52 @@
-<html>
-  <body>
-    <h1>Click the button to interact</h1>
-    <iframe id="myIframe" src="about:blank" style="width:300px;height:200px;"></iframe>
-    <button onclick="launch()">Click Me</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #videoPreview {
+            width: 560px;
+            height: 315px;
+            background-image: url('https://via.placeholder.com/560x315?text=RCE+DEMO'); /* Placeholder */
+            background-size: cover;
+            cursor: pointer;
+            position: relative;
+        }
 
-    <script>
-      function launch() {
-        // Qui puoi collegare il comportamento come un redirect o l'interazione avanzata
-        document.getElementById("myIframe").src = "https://0xjin.github.io/wowow/file.html"; // Cambia con un link reale o exploit
-        alert('Interazione completata!'); // Aggiungi azioni JavaScript come richiesto
-      }
-    </script>
-  </body>
+        #iframeContainer {
+            display: none;
+            width: 560px;
+            height: 315px;
+        }
+
+        #clickMe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="videoPreview">
+    <div id="clickMe">Click to Start</div>
+</div>
+
+<div id="iframeContainer">
+    <iframe src="https://0xjin.github.io/wowow/file.html" width="560" height="315"></iframe>
+</div>
+
+<script>
+    document.getElementById('videoPreview').addEventListener('click', function() {
+        document.getElementById('videoPreview').style.display = 'none';
+        document.getElementById('iframeContainer').style.display = 'block';
+    });
+</script>
+
+</body>
 </html>
