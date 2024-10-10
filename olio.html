@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCE Demo</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="RCE Demo" />
+    <meta property="og:description" content="Click to start the RCE demo!" />
+    <meta property="og:image" content="https://tuo_username.github.io/nome_repository/anteprima.png" />
+    <meta property="og:url" content="https://tuo_username.github.io/nome_repository/file.html" />
     <style>
         #videoPreview {
             width: 560px;
             height: 315px;
-            background-image: url('https://via.placeholder.com/560x315?text=RCE+DEMO'); /* Placeholder */
+            background-image: url('https://tuo_username.github.io/nome_repository/anteprima.png'); /* Immagine di anteprima */
             background-size: cover;
             cursor: pointer;
             position: relative;
@@ -33,12 +39,14 @@
 </head>
 <body>
 
+<!-- Simulazione del video preview -->
 <div id="videoPreview">
     <div id="clickMe">Click to Start</div>
 </div>
 
+<!-- Iframe nascosto che si attiva dopo il click -->
 <div id="iframeContainer">
-    <iframe src="https://0xjin.github.io/wowow/file.html" width="560" height="315"></iframe>
+    <iframe src="https://tuo_username.github.io/nome_repository/rce_interactive.html" width="560" height="315"></iframe>
 </div>
 
 <script>
