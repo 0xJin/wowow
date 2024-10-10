@@ -10,45 +10,53 @@
     <meta property="og:image" content="https://0xjin.github.io/wowow/immagine.png" />
     <meta property="og:url" content="https://0xjin.github.io/wowow/olio.html" />
     <style>
+        #videoPreview {
+            width: 560px;
+            height: 315px;
+            background-image: url('https://0xjin.github.io/wowow/immagine.png');
+            background-size: cover;
+            position: relative;
+            cursor: pointer;
+        }
+
         #iframeContainer {
             display: none;
             width: 560px;
             height: 315px;
         }
 
-        #clickMe {
+        #playButton {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 24px;
-            background-color: white;
-            padding: 10px;
-            border-radius: 5px;
+            font-size: 36px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50%;
         }
     </style>
 </head>
 <body>
 
-<!-- Video che parte solo al clic -->
-<video id="video" width="560" height="315" controls>
-    <source src="https://0xjin.github.io/wowow/sample-video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+<!-- Video placeholder -->
+<div id="videoPreview">
+    <div id="playButton">▶</div> <!-- Simulazione del pulsante di Play -->
+</div>
 
-<!-- Iframe nascosto che si attiva dopo il clic su 'Play' -->
+<!-- Iframe nascosto -->
 <div id="iframeContainer">
     <iframe src="https://0xjin.github.io/wowow/file.html" width="560" height="315"></iframe>
 </div>
 
 <script>
-    var video = document.getElementById('video');
-    
-    video.addEventListener('play', function() {
-        setTimeout(function() {
-            video.style.display = 'none';  // Nasconde il video
-            document.getElementById('iframeContainer').style.display = 'block';  // Mostra l'iframe
-        }, 2000); // Simula il tempo di riproduzione prima di mostrare l'iframe
+    var videoPreview = document.getElementById('videoPreview');
+    var iframeContainer = document.getElementById('iframeContainer');
+
+    videoPreview.addEventListener('click', function() {
+        videoPreview.style.display = 'none';  // Nasconde l'anteprima
+        iframeContainer.style.display = 'block';  // Mostra l'iframe
     });
 </script>
 
