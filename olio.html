@@ -3,62 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RCE Demo</title>
+    <title>RCE Demo Redirect</title>
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="RCE Demo" />
-    <meta property="og:description" content="Click to start the RCE demo!" />
+    <meta property="og:title" content="RCE Demo Redirect" />
+    <meta property="og:description" content="You are being redirected to the RCE demo" />
     <meta property="og:image" content="https://0xjin.github.io/wowow/immagine.png" />
     <meta property="og:url" content="https://0xjin.github.io/wowow/olio.html" />
-    <style>
-        #videoPreview {
-            width: 560px;
-            height: 315px;
-            background-image: url('https://0xjin.github.io/wowow/immagine.png');
-            background-size: cover;
-            position: relative;
-            cursor: pointer;
-        }
 
-        #iframeContainer {
-            display: none;
-            width: 560px;
-            height: 315px;
-        }
-
-        #playButton {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 36px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50%;
-        }
-    </style>
+    <script type="text/javascript">
+        // Redirect to another page after 2 seconds
+        setTimeout(function(){
+            window.location.href = "https://www.youtube.com/watch?v=bWYjWizF2vE";  // Metti qui il link della pagina a cui vuoi fare redirect
+        }, 2000);  // Attende 2 secondi prima del redirect
+    </script>
 </head>
 <body>
-
-<!-- Video placeholder -->
-<div id="videoPreview">
-    <div id="playButton">▶</div> <!-- Simulazione del pulsante di Play -->
-</div>
-
-<!-- Iframe nascosto -->
-<div id="iframeContainer">
-    <iframe src="https://0xjin.github.io/wowow/file.html" width="560" height="315"></iframe>
-</div>
-
-<script>
-    var videoPreview = document.getElementById('videoPreview');
-    var iframeContainer = document.getElementById('iframeContainer');
-
-    videoPreview.addEventListener('click', function() {
-        videoPreview.style.display = 'none';  // Nasconde l'anteprima
-        iframeContainer.style.display = 'block';  // Mostra l'iframe
-    });
-</script>
-
+    <h1>Redirecting to RCE Demo...</h1>
+    <p>If you are not redirected automatically, <a href="https://www.youtube.com/watch?v=bWYjWizF2vE">click here</a>.</p>
 </body>
 </html>
